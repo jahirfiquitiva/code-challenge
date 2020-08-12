@@ -1,0 +1,10 @@
+{
+  "extends": [
+    "@bpsmart/react"
+  ],
+  "rules": {
+    "react/react-in-jsx-scope": "off",
+    "react/prop-types": "off",
+    "template-curly-spacing": "off"
+  }
+}
