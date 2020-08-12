@@ -1,4 +1,5 @@
-import '../styles/globals.css';
+import '@styles/resetalize.min.css';
+import '@styles/globals.css';
 
 const MyApp = ({ Component, pageProps }) => {
   return <Component {...pageProps} />;
