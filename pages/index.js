@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Main from '@components/main/main';
-import Toolbar from '@components/toolbar/toolbar';
+import Intro from '@components/intro/intro';
+import Posts from '@components/posts/posts';
 
 const Home = () => {
   return (<>
@@ -10,8 +11,8 @@ const Home = () => {
     </Head>
 
     <Main imageUrl={'/images/main.png'}>
-      <Toolbar/>
-      <p>Hola Mundo</p>
+      <Intro/>
+      <Posts/>
     </Main>
   </>);
 };

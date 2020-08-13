@@ -1,4 +1,5 @@
 import styles from './main.module.css';
+import Toolbar from '@components/toolbar/toolbar';
 
 const Main = ({ imageUrl, children }) => {
   return (<main className={styles.fullheight}>
@@ -6,7 +7,12 @@ const Main = ({ imageUrl, children }) => {
       <img src={imageUrl}/>
     </div>
     <div className={styles.content}>
-      {children}
+      <Toolbar/>
+      <div className={styles.actualcontent}>
+        <div>
+          {children}
+        </div>
+      </div>
     </div>
   </main>);
 };

@@ -11,6 +11,11 @@ main.fullheight {
     padding-bottom: 10rem;
 }
 
+.content .actualcontent {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
 .backgroundcontainer {
     margin: 0;
     position: fixed;
@@ -37,6 +42,10 @@ main.fullheight {
 }
 
 @media (min-width: 960px) {
+    .content .actualcontent {
+        grid-template-columns: 1fr 1fr;
+    }
+
     .backgroundcontainer {
         flex-direction: row;
     }
