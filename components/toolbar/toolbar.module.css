@@ -16,7 +16,15 @@
     align-items: center;
 }
 
-.toolbar .container .profile img.avatar {
+.toolbar .container .profile .username {
+    color: inherit;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.toolbar .container .profile .username img.avatar {
     display: block;
     width: 32px;
     height: 32px;
@@ -25,9 +33,25 @@
     margin: 0 1.6rem;
 }
 
+.toolbar .container .profile .username p {
+    color: inherit;
+    display: none;
+}
+
 .toolbar .container button.logo {
     background: rgba(0, 0, 0, 0);
     border-radius: 0;
     padding-left: 0;
     padding-right: 0;
+}
+
+@media (min-width: 960px) {
+    .toolbar .container .profile .username img.avatar {
+        margin-right: .8rem;
+    }
+
+    .toolbar .container .profile .username p {
+        display: block;
+        margin-right: 2.4rem;
+    }
 }

@@ -17,8 +17,14 @@ const Toolbar = () => {
         <MatterSupply/>
       </button>
       <div className={styles.profile}>
-        <img src={'https://unavatar.now.sh/github/jahirfiquitiva'} alt={'Photo'}
-             className={styles.avatar}/>
+        <a
+          className={styles.username}
+          href={'https://github.com/jahirfiquitiva'}
+          target={'_blank'} rel={'noopener noreferrer'}>
+          <img src={'https://unavatar.now.sh/github/jahirfiquitiva'} alt={'Photo'}
+               className={styles.avatar}/>
+          <p>Jahir Fiquitiva</p>
+        </a>
         <Link href={'/'}>
           <a className={'underlined'}>
             Log out
