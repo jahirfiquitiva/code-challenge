@@ -5,7 +5,9 @@ const Main = ({ imageUrl, children }) => {
     <div className={styles.backgroundcontainer}>
       <img src={imageUrl}/>
     </div>
-    {children}
+    <div className={styles.content}>
+      {children}
+    </div>
   </main>);
 };
 

@@ -1,0 +1,26 @@
+.toolbar {
+    width: 100%;
+    padding: 2rem 0;
+}
+
+.toolbar .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.toolbar .container .profile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.toolbar .container .profile img.avatar {
+    display: block;
+    width: 32px;
+    height: 32px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0 1.6rem;
+}

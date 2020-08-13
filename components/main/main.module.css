@@ -2,6 +2,15 @@ main.fullheight {
     min-height: 100vh;
 }
 
+.content {
+    max-width: var(--site-max-width);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    padding: 0 2rem;
+    padding-bottom: 10rem;
+}
+
 .backgroundcontainer {
     margin: 0;
     position: fixed;
@@ -16,12 +25,15 @@ main.fullheight {
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
-    padding: 6rem 0;
+    padding: 8rem 0;
 }
 
 .backgroundcontainer img {
+    display: block;
     max-width: 100vw;
+    max-height: 100%;
     margin-bottom: -200px;
+    align-self: flex-end;
 }
 
 @media (min-width: 960px) {
@@ -31,5 +43,11 @@ main.fullheight {
 
     .backgroundcontainer img {
         margin-bottom: 0;
+    }
+}
+
+@media (min-width: 1280px) {
+    .content {
+        padding: 0;
     }
 }
