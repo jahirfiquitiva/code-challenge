@@ -1,11 +1,16 @@
 import { useContext } from 'react';
 import PropTypes from 'prop-types';
+import useSWR from 'swr';
 import { PostsContext } from '@components/posts/posts';
-import styles from './list.module.css';
 import Loading from '@components/loading/loading';
+import fetcher from '@utils/fetcher';
+import formatDate from '@utils/formatDate';
+import calculateTimeAgo from '@utils/calculateTimeAgo';
+import styles from './list.module.css';
 
 const List = ({ loading = true }) => {
   const { username, userData } = useContext(PostsContext);
+  const { data } = useSWR(`https://api.github.com/users/${username}/gists`, fetcher);
 
   if (!username || username.length <= 0) return (<></>);
 
@@ -32,10 +37,24 @@ const List = ({ loading = true }) => {
   };
 
   const renderUserPosts = () => {
-    if (!loading && userData) {
+    if (!loading && data) {
       return (<ul>
-        <li>Post 1</li>
-        <li>Post 2</li>
+        {(data || []).map((it, i) => {
+          const title = it.description || it.files ? Object.keys(it.files)[0] : 'Unknown';
+          const postDate = new Date(it.updated_at);
+          return (<li key={i}>
+            <div className={styles.post}>
+              <div>
+                <p className={styles.date}>
+                  {formatDate(postDate)}&nbsp;&nbsp;•
+                  &nbsp;<span>~{calculateTimeAgo(postDate)} months ago</span>
+                </p>
+                <p className={styles.title}>{title}</p>
+              </div>
+              <a href={it.html_url} target={'_blank'} rel={'noopener noreferrer'}>Read</a>
+            </div>
+          </li>);
+        })}
       </ul>);
     } else {
       return (<></>);

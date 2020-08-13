@@ -1,4 +1,6 @@
 :root {
+    --system-font: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    --neue-font: neuehanskendrick, var(--system-font);
     --site-max-width: 1280px;
     --primary-color: #1D1FDD;
     --divider-color: rgba(0, 0, 0, .12);
@@ -15,6 +17,7 @@ body {
     margin: 0;
     line-height: 1.5;
     font-size: var(--base-font-size);
+    font-family: var(--system-font);
 }
 
 a {
@@ -84,6 +87,10 @@ h5 {
 h6 {
     font-size: calc(var(--base-font-size) * 1.35);
     font-weight: 600;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--neue-font);
 }
 
 @media (min-width: 960px) {

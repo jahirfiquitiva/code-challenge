@@ -29,7 +29,6 @@ const Posts = () => {
     try {
       const request = await fetch(`https://api.github.com/users/${username}`);
       const data = await request.json();
-      console.table(data);
       if (data && data.name) {
         internalSetUserData({
           name: data.name,

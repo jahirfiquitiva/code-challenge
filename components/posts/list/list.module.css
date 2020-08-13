@@ -37,6 +37,29 @@
 }
 
 .postslist ul li {
+    margin-top: .8rem;
     padding: 1rem 0;
     border-bottom: 1px solid var(--divider-color);
+}
+
+.postslist ul li .post {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: calc(var(--base-font-size) * 1.35);
+}
+
+.postslist ul li .post .date {
+    font-size: .7rem;
+    font-weight: 400;
+    margin-bottom: .4rem;
+}
+
+.postslist ul li .post .date span {
+    color: var(--primary-color);
+}
+
+.postslist ul li .post .title {
+    font-weight: 400;
 }
