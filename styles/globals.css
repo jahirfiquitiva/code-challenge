@@ -18,6 +18,7 @@ body {
     line-height: 1.5;
     font-size: var(--base-font-size);
     font-family: var(--system-font);
+    scroll-behavior: smooth;
 }
 
 a {

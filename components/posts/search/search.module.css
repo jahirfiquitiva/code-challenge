@@ -6,14 +6,15 @@
 }
 
 .search .field {
+    width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: flex-start;
     margin: 2rem 0;
 }
 
 .search .field input {
+    min-width: 80%;
     max-width: 100%;
     background-color: #eee;
     border-radius: 99999px;

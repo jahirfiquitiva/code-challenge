@@ -1,7 +1,6 @@
 import { useContext, useState } from 'react';
 import Icon from '@mdi/react';
 import { mdiMagnify } from '@mdi/js';
-import { PostsContext } from '@components/posts/posts';
 import styles from './search.module.css';
 import { AppContext } from '@components/app-context';
 
@@ -13,11 +12,18 @@ const Search = () => {
     dispatchUserName({ type: 'set', payload: usernameInInput });
   };
 
+  const onKeyPressed = (e) => {
+    if (e.key.toString().toLowerCase() === 'enter') {
+      setUserName();
+    }
+  };
+
   return (<div className={styles.search}>
     <div className={styles.field}>
       <Icon path={mdiMagnify} size={1}/>
       <input
         type={'text'} placeholder={'Username'} autoComplete={'off'}
+        onKeyDown={onKeyPressed}
         value={usernameInInput}
         onChange={(e) => setUsernameInInput(e.target.value.toString())}/>
     </div>

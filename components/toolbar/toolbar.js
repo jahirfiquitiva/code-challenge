@@ -19,7 +19,7 @@ const Toolbar = () => {
       <div className={styles.profile}>
         <img src={'https://unavatar.now.sh/github/jahirfiquitiva'} alt={'Photo'}
              className={styles.avatar}/>
-        <Link href={'/logout'}>
+        <Link href={'/'}>
           <a className={'underlined'}>
             Log out
           </a>
