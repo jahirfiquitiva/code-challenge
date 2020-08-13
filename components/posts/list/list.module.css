@@ -21,6 +21,10 @@
     border-radius: 50%;
 }
 
+.postslist .userinfo .details {
+    margin-left: 1.6rem;
+}
+
 .postslist ul {
     margin: 2rem 0 0;
     padding: 0;

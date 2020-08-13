@@ -1,4 +1,4 @@
-import { createContext, useReducer } from 'react';
+import { createContext, useMemo, useReducer, useState } from 'react';
 import Search from '@components/posts/search/search';
 import List from '@components/posts/list/list';
 
@@ -10,11 +10,50 @@ const userNameReducer = (data, action) => {
 };
 
 const Posts = () => {
+  const [userData, setUserData] = useState(null);
   const [username, dispatchUserName] = useReducer(userNameReducer, '');
 
-  return (<PostsContext.Provider value={{ username, dispatchUserName }}>
+  const getUserInfo = async () => {
+    if (!username || username.length <= 0) {
+      setUserData(null);
+      return;
+    }
+    try {
+      const request = await fetch(`https://api.github.com/users/${username}`);
+      const data = await request.json();
+      if (data.name) {
+        setUserData({
+          name: data.name,
+          photo: data.avatar_url,
+        });
+      } else {
+        setUserData(null);
+      }
+    } catch (e) {
+      setUserData(null);
+    }
+  };
+
+  useMemo(() => {
+    if (!username || username.length <= 0) {
+      setUserData(null);
+    } else {
+      getUserInfo()
+        .catch(() => {
+          setUserData(null);
+        });
+    }
+  }, [username]);
+
+  const sharedData = {
+    username,
+    dispatchUserName,
+    userData,
+  };
+
+  return (<PostsContext.Provider value={sharedData}>
     <Search/>
-    <List/>
+    <List loading={userData === undefined || userData === null}/>
   </PostsContext.Provider>);
 };
 

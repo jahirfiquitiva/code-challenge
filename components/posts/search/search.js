@@ -16,7 +16,7 @@ const Search = () => {
     <div className={styles.field}>
       <Icon path={mdiMagnify} size={1}/>
       <input
-        type={'text'} placeholder={'Username'}
+        type={'text'} placeholder={'Username'} autoComplete={'off'}
         value={usernameInInput}
         onChange={(e) => setUsernameInInput(e.target.value.toString())}/>
     </div>
