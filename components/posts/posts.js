@@ -10,34 +10,44 @@ const userNameReducer = (data, action) => {
 };
 
 const Posts = () => {
+  const [loading, setLoading] = useState(false);
   const [userData, setUserData] = useState(null);
   const [username, dispatchUserName] = useReducer(userNameReducer, '');
 
+  const internalSetUserData = (data) => {
+    setLoading(false);
+    setUserData(data);
+  };
+
   const getUserInfo = async () => {
-    setUserData(null);
+    if (loading) return;
+    internalSetUserData(null);
     if (!username || username.length <= 0) {
       return;
     }
+    setLoading(true);
     try {
       const request = await fetch(`https://api.github.com/users/${username}`);
       const data = await request.json();
-      if (data.name) {
-        setUserData({
+      console.table(data);
+      if (data && data.name) {
+        internalSetUserData({
           name: data.name,
           photo: data.avatar_url,
         });
       } else {
-        setUserData(null);
+        internalSetUserData(
+          { error: data ? data.message || 'Unexpected error' : 'Unexpected error' });
       }
     } catch (e) {
-      setUserData(null);
+      internalSetUserData(null);
     }
   };
 
   useMemo(() => {
     getUserInfo()
       .catch(() => {
-        setUserData(null);
+        internalSetUserData(null);
       });
   }, [username]);
 
@@ -49,7 +59,7 @@ const Posts = () => {
 
   return (<PostsContext.Provider value={sharedData}>
     <Search/>
-    <List loading={userData === undefined || userData === null}/>
+    <List loading={loading}/>
   </PostsContext.Provider>);
 };
 
