@@ -17,7 +17,7 @@ body {
     margin: 0;
     line-height: 1.5;
     font-size: var(--base-font-size);
-    font-family: var(--system-font);
+    font-family: var(--neue-font);
     scroll-behavior: smooth;
 }
 

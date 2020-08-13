@@ -33,3 +33,17 @@
 .userinfo .details h5 {
     margin: 0;
 }
+
+.userinfo .details button {
+    margin-top: .4rem;
+    background: none;
+    border-radius: 0;
+    color: var(--primary-color);
+    padding: 0;
+    font-weight: 400;
+}
+
+.userinfo .details button:hover,
+.userinfo .details button:focus {
+    text-decoration: underline var(--primary-color);
+}
