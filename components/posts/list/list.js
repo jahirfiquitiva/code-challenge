@@ -10,8 +10,8 @@ import styles from './list.module.css';
 import { SinglePostContext } from '@components/single-post-context';
 
 const List = ({ loading = true }) => {
-  const { setSelectedPost } = useContext(SinglePostContext);
-  const { username, userData } = useContext(PostsContext);
+  const { username, setSelectedPost } = useContext(SinglePostContext);
+  const { userData } = useContext(PostsContext);
   const { data } = username && username.length > 0
     ? useSWR(`https://api.github.com/users/${username}/gists`, fetcher)
     : {};
@@ -74,9 +74,7 @@ const List = ({ loading = true }) => {
           } else {
             return (<li key={i}>
               <a href={it.html_url} target={'_blank'} rel={'noopener noreferrer'}>
-                <div className={styles.post} onClick={() => { selectPost(it.id); }}>
-                  {renderPostContent(title, postDate)}
-                </div>
+                <div className={styles.post}>{renderPostContent(title, postDate)}</div>
               </a>
             </li>);
           }

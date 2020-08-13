@@ -1,23 +1,41 @@
-import styles from './main.module.css';
+import { useContext, useMemo } from 'react';
+import { SinglePostContext } from '@components/single-post-context';
 import Toolbar from '@components/toolbar/toolbar';
-import SinglePostProvider from '@components/single-post-context';
+import Post from '@components/post/post';
+import styles from './main.module.css';
 
-const Main = ({ imageUrl, children }) => {
-  return (<SinglePostProvider>
-    <main className={styles.fullheight}>
-      <div className={styles.backgroundcontainer}>
-        <img src={imageUrl}/>
-      </div>
-      <div className={styles.content}>
-        <Toolbar/>
-        <div className={styles.actualcontent}>
-          <div className={styles.first}>
-            {children}
-          </div>
+const Main = ({ imageUrl, postImageUrl, children }) => {
+  const { selectedPost } = useContext(SinglePostContext);
+
+  useMemo(() => {
+    if (!selectedPost || selectedPost.length <= 0) return;
+    window.scroll({ top: 0 });
+  }, [selectedPost]);
+
+  const renderPost = () => {
+    if (!selectedPost || selectedPost.length <= 0) return (<></>);
+    return (<Post/>);
+  };
+
+  const renderChildren = () => {
+    if (!selectedPost || selectedPost.length <= 0) return children;
+    return (<></>);
+  };
+
+  return (<main className={styles.fullheight}>
+    <div className={styles.backgroundcontainer}>
+      <img src={(!selectedPost || selectedPost.length <= 0) ? imageUrl : postImageUrl}/>
+    </div>
+    <div className={styles.content}>
+      <Toolbar/>
+      <div className={styles.actualcontent}>
+        <div className={styles.first}>
+          {renderChildren()}
+          {renderPost()}
         </div>
       </div>
-    </main>
-  </SinglePostProvider>);
+    </div>
+  </main>);
 };
 
 export default Main;

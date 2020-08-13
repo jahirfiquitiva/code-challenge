@@ -1,18 +1,14 @@
-import { createContext, useMemo, useReducer, useState } from 'react';
+import { createContext, useContext, useMemo, useState } from 'react';
+import { SinglePostContext } from '@components/single-post-context';
 import Search from '@components/posts/search/search';
 import List from '@components/posts/list/list';
 
 const PostsContext = createContext('posts');
 
-const userNameReducer = (data, action) => {
-  if (action.type === 'set') return action.payload;
-  return data;
-};
-
 const Posts = () => {
+  const { username } = useContext(SinglePostContext);
   const [loading, setLoading] = useState(false);
   const [userData, setUserData] = useState(null);
-  const [username, dispatchUserName] = useReducer(userNameReducer, '');
 
   const internalSetUserData = (data) => {
     setLoading(false);
@@ -51,8 +47,6 @@ const Posts = () => {
   }, [username]);
 
   const sharedData = {
-    username,
-    dispatchUserName,
     userData,
   };
 

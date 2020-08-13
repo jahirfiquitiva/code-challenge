@@ -4,7 +4,7 @@
 }
 
 .post {
-    margin-bottom: 6rem;
+    margin-bottom: 8rem;
 }
 
 .post h1,
@@ -30,4 +30,10 @@
 .post ol {
     list-style-type: decimal;
     margin-left: 1.2rem;
+}
+
+@media (min-width: 960px) {
+    .post {
+        margin-bottom: 4rem;
+    }
 }
