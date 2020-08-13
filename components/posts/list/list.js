@@ -9,8 +9,8 @@ const List = ({ loading = true }) => {
   if (!username || username.length <= 0) return (<></>);
 
   const renderUserInfo = () => {
-    if (!userData) return (<></>);
-    if (loading) return (<p>Cargando información…</p>);
+    if (!username) return (<></>);
+    if (loading || !userData) return (<p>Loading user info…</p>);
     return (<div className={styles.userinfo}>
       <a
         href={`https://github.com/${username}`}
@@ -28,12 +28,18 @@ const List = ({ loading = true }) => {
     </div>);
   };
 
-  return (<div className={styles.postslist}>
-    {renderUserInfo()}
-    <ul>
+  const renderUserPosts = () => {
+    if (!username) return (<></>);
+    if (loading || !userData) return (<p>Loading posts…</p>);
+    return (<ul>
       <li>Post 1</li>
       <li>Post 2</li>
-    </ul>
+    </ul>);
+  };
+
+  return (<div className={styles.postslist}>
+    {renderUserInfo()}
+    {renderUserPosts()}
   </div>);
 };
 

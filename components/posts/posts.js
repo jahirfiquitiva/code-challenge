@@ -14,8 +14,8 @@ const Posts = () => {
   const [username, dispatchUserName] = useReducer(userNameReducer, '');
 
   const getUserInfo = async () => {
+    setUserData(null);
     if (!username || username.length <= 0) {
-      setUserData(null);
       return;
     }
     try {
@@ -35,14 +35,10 @@ const Posts = () => {
   };
 
   useMemo(() => {
-    if (!username || username.length <= 0) {
-      setUserData(null);
-    } else {
-      getUserInfo()
-        .catch(() => {
-          setUserData(null);
-        });
-    }
+    getUserInfo()
+      .catch(() => {
+        setUserData(null);
+      });
   }, [username]);
 
   const sharedData = {
