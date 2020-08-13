@@ -9,7 +9,7 @@ const Main = ({ imageUrl, children }) => {
     <div className={styles.content}>
       <Toolbar/>
       <div className={styles.actualcontent}>
-        <div>
+        <div className={styles.first}>
           {children}
         </div>
       </div>

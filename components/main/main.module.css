@@ -7,12 +7,19 @@ main.fullheight {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    padding: 0 2rem;
+    padding: 0 1.6rem;
 }
 
 .content .actualcontent {
     display: grid;
     grid-template-columns: 1fr;
+    padding-bottom: 4rem;
+}
+
+.content .actualcontent .first {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
 }
 
 .backgroundcontainer {
@@ -43,6 +50,7 @@ main.fullheight {
 @media (min-width: 960px) {
     .content .actualcontent {
         grid-template-columns: 1fr 1fr;
+        padding-bottom: 0;
     }
 
     .backgroundcontainer {

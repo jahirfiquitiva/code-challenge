@@ -43,16 +43,18 @@ const List = ({ loading = true }) => {
           const title = it.description || it.files ? Object.keys(it.files)[0] : 'Unknown';
           const postDate = new Date(it.updated_at);
           return (<li key={i}>
-            <div className={styles.post}>
-              <div>
-                <p className={styles.date}>
-                  {formatDate(postDate)}&nbsp;&nbsp;•
-                  &nbsp;<span>~{calculateTimeAgo(postDate)} months ago</span>
-                </p>
-                <p className={styles.title}>{title}</p>
+            <a href={it.html_url} target={'_blank'} rel={'noopener noreferrer'}>
+              <div className={styles.post}>
+                <div>
+                  <p className={styles.date}>
+                    {formatDate(postDate)}&nbsp;&nbsp;•
+                    &nbsp;<span>~{calculateTimeAgo(postDate)} months ago</span>
+                  </p>
+                  <p className={styles.title}>{title}</p>
+                </div>
+                <span className={styles.read}>Read</span>
               </div>
-              <a href={it.html_url} target={'_blank'} rel={'noopener noreferrer'}>Read</a>
-            </div>
+            </a>
           </li>);
         })}
       </ul>);

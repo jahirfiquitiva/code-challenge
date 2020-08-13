@@ -1,0 +1,5 @@
+.intro,
+.intro * {
+    max-width: 100%;
+    word-break: break-word;
+}
