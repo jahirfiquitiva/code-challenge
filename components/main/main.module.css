@@ -13,7 +13,6 @@ main.fullheight {
 .content .actualcontent {
     display: grid;
     grid-template-columns: 1fr;
-    padding-bottom: 4rem;
 }
 
 .content .actualcontent .first {
@@ -40,11 +39,36 @@ main.fullheight {
 }
 
 .backgroundcontainer img {
-    display: block;
+    display: none;
     max-width: 80vw;
     max-height: 100%;
     margin-bottom: -225px;
     align-self: flex-end;
+}
+
+.mobileimg {
+    z-index: -1;
+    display: flex;
+    width: 100vw;
+    height: auto;
+    min-height: 210px;
+    align-items: center;
+    background-size: 85% auto;
+    background-repeat: no-repeat;
+    background-position: right top;
+}
+
+@media (min-width: 425px) {
+    .mobileimg {
+        min-height: 250px;
+    }
+}
+
+@media (min-width: 475px) {
+    .mobileimg {
+        min-height: 270px;
+        background-size: 50% auto;
+    }
 }
 
 @media (min-width: 960px) {
@@ -58,8 +82,13 @@ main.fullheight {
     }
 
     .backgroundcontainer img {
+        display: block;
         margin-bottom: 0;
         max-width: 50vw;
+    }
+
+    .mobileimg {
+        display: none;
     }
 }
 

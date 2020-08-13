@@ -1,4 +1,5 @@
 .userinfo {
+    margin-top: 1rem;
     width: auto;
     display: flex;
     flex-direction: row;

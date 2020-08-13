@@ -35,6 +35,12 @@ const Main = ({ imageUrl, postImageUrl, children }) => {
         </div>
       </div>
     </div>
+    <div
+      className={styles.mobileimg}
+      style={{
+        backgroundImage:
+          `url(${(!selectedPost || selectedPost.length <= 0) ? imageUrl : postImageUrl})`,
+      }}/>
   </main>);
 };
 

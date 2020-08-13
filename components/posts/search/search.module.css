@@ -14,7 +14,7 @@
 }
 
 .search .field input {
-    min-width: 80%;
+    min-width: 100%;
     max-width: 100%;
     background-color: #eee;
     border-radius: 99999px;
@@ -33,9 +33,13 @@
     left: 1.2rem;
 }
 
-@media (min-width: 960px) {
+@media (min-width: 475px) {
     .search {
         justify-content: flex-start;
         align-items: flex-start;
+    }
+
+    .search .field input {
+        min-width: 70%;
     }
 }
