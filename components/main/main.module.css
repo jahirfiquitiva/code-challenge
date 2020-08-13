@@ -34,9 +34,9 @@ main.fullheight {
 
 .backgroundcontainer img {
     display: block;
-    max-width: 100vw;
+    max-width: 80vw;
     max-height: 100%;
-    margin-bottom: -200px;
+    margin-bottom: -225px;
     align-self: flex-end;
 }
 

@@ -1,0 +1,69 @@
+@charset "UTF-8";
+@font-face {
+    font-family: "neuehanskendrick";
+    src: url("/fonts/neuehanskendrick-extrabold.woff2") format("woff2"),
+    url("/fonts/neuehanskendrick-extrabold.woff") format("woff"),
+    url("/fonts/neuehanskendrick-extrabold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 800;
+}
+
+@font-face {
+    font-family: "neuehanskendrick";
+    src: url("/fonts/neuehanskendrick-bold.woff2") format("woff2"),
+    url("/fonts/neuehanskendrick-bold.woff") format("woff"),
+    url("/fonts/neuehanskendrick-bold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "neuehanskendrick";
+    src: url("/fonts/neuehanskendrick-semibold.woff2") format("woff2"),
+    url("/fonts/neuehanskendrick-semibold.woff") format("woff"),
+    url("/fonts/neuehanskendrick-semibold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: "neuehanskendrick";
+    src: url("/fonts/neuehanskendrick-medium.woff2") format("woff2"),
+    url("/fonts/neuehanskendrick-medium.woff") format("woff"),
+    url("/fonts/neuehanskendrick-medium.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "neuehanskendrick";
+    src: url("/fonts/neuehanskendrick-regular.woff2") format("woff2"),
+    url("/fonts/neuehanskendrick-regular.woff") format("woff"),
+    url("/fonts/neuehanskendrick-regular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "neuehanskendrick";
+    src: url("/fonts/neuehanskendrick-light.woff2") format("woff2"),
+    url("/fonts/neuehanskendrick-light.woff") format("woff"),
+    url("/fonts/neuehanskendrick-light.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: "neuehanskendrick";
+    src: url("/fonts/neuehanskendrick-extralight.woff2") format("woff2"),
+    url("/fonts/neuehanskendrick-extralight.woff") format("woff"),
+    url("/fonts/neuehanskendrick-extralight.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 200;
+}
+
+body, html {
+    font-family: neuehanskendrick, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    font-weight: 300;
+}
