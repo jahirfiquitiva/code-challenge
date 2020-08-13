@@ -1,8 +1,9 @@
 import { useContext } from 'react';
 import ReactMarkdown from 'react-markdown';
 import useSWR from 'swr';
-import fetcher from '@utils/fetcher';
 import { AppContext } from '@components/app-context';
+import UserInfo from '@components/user-info/user-info';
+import fetcher from '@utils/fetcher';
 import styles from './post.module.css';
 
 const Post = () => {
@@ -21,7 +22,10 @@ const Post = () => {
   }
 
   return (<div className={styles.post}>
-    <ReactMarkdown source={content}/>
+    <div className={styles.actualpost}>
+      <ReactMarkdown source={content}/>
+    </div>
+    <UserInfo/>
   </div>);
 };
 

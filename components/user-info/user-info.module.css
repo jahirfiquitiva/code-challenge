@@ -1,0 +1,34 @@
+.userinfo {
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* align-self: flex-start; */
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--divider-color);
+}
+
+.userinfo a.image {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-height: 56px;
+    margin-top: .4rem;
+}
+
+.userinfo img {
+    align-self: center;
+    display: block;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+}
+
+.userinfo .details {
+    margin-left: 1.6rem;
+}
+
+.userinfo .details h5 {
+    margin: 0;
+}

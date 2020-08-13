@@ -1,17 +1,16 @@
 import { useContext } from 'react';
 import PropTypes from 'prop-types';
 import useSWR from 'swr';
-import { PostsContext } from '@components/posts/posts';
+import { AppContext } from '@components/app-context';
 import Loading from '@components/loading/loading';
+import UserInfo from '@components/user-info/user-info';
 import fetcher from '@utils/fetcher';
 import formatDate from '@utils/formatDate';
 import calculateTimeAgo from '@utils/calculateTimeAgo';
 import styles from './list.module.css';
-import { AppContext } from '@components/app-context';
 
 const List = ({ loading = true }) => {
-  const { username, setSelectedPost } = useContext(AppContext);
-  const { userData } = useContext(PostsContext);
+  const { username, setSelectedPost, userData } = useContext(AppContext);
   const { data } = username && username.length > 0
     ? useSWR(`https://api.github.com/users/${username}/gists`, fetcher)
     : {};
@@ -23,25 +22,7 @@ const List = ({ loading = true }) => {
   };
 
   const renderUserInfo = () => {
-    if (!loading && userData) {
-      return (<div className={styles.userinfo}>
-        <a
-          href={`https://github.com/${username}`}
-          target={'_blank'} rel={'noopener noreferrer'}>
-          <img src={userData.photo || `https://unavatar.now.sh/github/${username}`} alt={username}/>
-        </a>
-        <div className={styles.details}>
-          <h5>{userData.name || 'Unknown'}</h5>
-          <a
-            href={`https://gist.github.com/${username}`}
-            target={'_blank'} rel={'noopener noreferrer'}>
-            Posts
-          </a>
-        </div>
-      </div>);
-    } else {
-      return (<></>);
-    }
+    return loading ? (<></>) : (<UserInfo/>);
   };
 
   const renderPostContent = (title, postDate) => {
