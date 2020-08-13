@@ -2,7 +2,7 @@
 
 Code Challenge project built for [Matter Supply Co.](https://mattersupply.co/) using [NextJS](https://nextjs.org/), [React](https://es.reactjs.org/) and deployed on [Vercel](https://vercel.com)
 
-View and try live site at [https://msco-cc-jf.vercel.app/](https://msco-cc-jf.vercel.app/)
+View and try live site at [https://jahir.xyz/msco-cc](https://jahir.xyz/msco-cc)
 
 ---
 
