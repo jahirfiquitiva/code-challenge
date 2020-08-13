@@ -1,32 +1,34 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Code Challenge
 
-## Getting Started
+Code Challenge project built for [Matter Supply Co.](https://mattersupply.co/) using [NextJS](https://nextjs.org/), [React](https://es.reactjs.org/) and deployed on [Vercel](https://vercel.com)
 
-First, run the development server:
+View and try live site at [https://msco-cc-jf.vercel.app/](https://msco-cc-jf.vercel.app/)
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Developed by
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+### [Jahir Fiquitiva](https://jahir.dev/)
 
-## Learn More
+[![Follow on GitHub](https://img.shields.io/github/followers/jahirfiquitiva.svg?style=social&label=Follow)](https://github.com/jahirfiquitiva)
+[![Follow on Twitter](https://img.shields.io/twitter/follow/jahirfiquitiva.svg?style=social)](https://twitter.com/jahirfiquitiva)
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## License
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+This app is shared under the CreativeCommons Attribution-ShareAlike license.
 
-## Deploy on Vercel
+	Copyright © 2020 Jahir Fiquitiva
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+	Licensed under the CreativeCommons Attribution-ShareAlike 
+	4.0 International License. You may not use this file except in compliance 
+	with the License. You may obtain a copy of the License at
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+	   http://creativecommons.org/licenses/by-sa/4.0/legalcode
 
-### Developed by Jahir Fiquitiva
+	Unless required by applicable law or agreed to in writing, software
+	distributed under the License is distributed on an "AS IS" BASIS,
+	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	See the License for the specific language governing permissions and
+	limitations under the License.
