@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Main from '@components/main/main';
 import Intro from '@components/intro/intro';
 import Posts from '@components/posts/posts';
+import Post from '@components/post/post';
 
 const Home = () => {
   return (<>
@@ -13,6 +14,7 @@ const Home = () => {
     <Main imageUrl={'/images/main.png'}>
       <Intro/>
       <Posts/>
+      <Post/>
     </Main>
   </>);
 };

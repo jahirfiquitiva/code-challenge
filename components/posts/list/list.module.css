@@ -43,13 +43,14 @@
     border-bottom: 1px solid var(--divider-color);
 }
 
-.postslist ul li a .post {
+.postslist ul li .post {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     font-size: calc(var(--base-font-size) * 1.35);
     text-decoration: none;
+    cursor: pointer;
 }
 
 .postslist ul li a:hover,
@@ -59,29 +60,30 @@
     text-decoration: none;
 }
 
-.postslist ul li a .post .date {
+.postslist ul li .post .date {
     font-size: .7rem;
     font-weight: 400;
     margin-bottom: .4rem;
     color: #000;
 }
 
-.postslist ul li a .post .date span {
+.postslist ul li .post .date span {
     color: var(--primary-color);
 }
 
-.postslist ul li a .post .title {
+.postslist ul li .post .title {
     font-weight: 400;
     word-break: break-all;
     color: #000;
 }
 
-.postslist ul li a .post .read {
+.postslist ul li .post .read {
+    color: var(--primary-color);
     display: none;
 }
 
-.postslist ul li a:hover .post .read,
-.postslist ul li a:focus .post .read {
+.postslist ul li .post:hover .read,
+.postslist ul li .post:focus .read {
     text-decoration: underline var(--primary-color);
 }
 
@@ -90,11 +92,11 @@
         margin-bottom: 0;
     }
 
-    .postslist ul li a .post .title {
+    .postslist ul li .post .title {
         margin-right: 2rem;
     }
 
-    .postslist ul li a .post .read {
+    .postslist ul li .post .read {
         display: block;
     }
 }

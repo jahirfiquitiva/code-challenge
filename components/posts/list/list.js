@@ -7,12 +7,20 @@ import fetcher from '@utils/fetcher';
 import formatDate from '@utils/formatDate';
 import calculateTimeAgo from '@utils/calculateTimeAgo';
 import styles from './list.module.css';
+import { SinglePostContext } from '@components/single-post-context';
 
 const List = ({ loading = true }) => {
+  const { setSelectedPost } = useContext(SinglePostContext);
   const { username, userData } = useContext(PostsContext);
-  const { data } = useSWR(`https://api.github.com/users/${username}/gists`, fetcher);
+  const { data } = username && username.length > 0
+    ? useSWR(`https://api.github.com/users/${username}/gists`, fetcher)
+    : {};
 
   if (!username || username.length <= 0) return (<></>);
+
+  const selectPost = (id) => {
+    setSelectedPost(id);
+  };
 
   const renderUserInfo = () => {
     if (!loading && userData) {
@@ -36,26 +44,42 @@ const List = ({ loading = true }) => {
     }
   };
 
+  const renderPostContent = (title, postDate) => {
+    return (<>
+      <div>
+        <p className={styles.date}>
+          {formatDate(postDate)}&nbsp;&nbsp;•
+          &nbsp;<span>~{calculateTimeAgo(postDate)} months ago</span>
+        </p>
+        <p className={styles.title}>{title}</p>
+      </div>
+      <span className={styles.read}>Read</span>
+    </>);
+  };
+
   const renderUserPosts = () => {
     if (!loading && data) {
       return (<ul>
         {(data || []).map((it, i) => {
           const title = it.description || it.files ? Object.keys(it.files)[0] : 'Unknown';
+          const filesCount = it.files ? Object.keys(it.files).length || 0 : 0;
+          const firstFile = (it.files ? Object.keys(it.files)[0] || '' : '').toString();
           const postDate = new Date(it.updated_at);
-          return (<li key={i}>
-            <a href={it.html_url} target={'_blank'} rel={'noopener noreferrer'}>
-              <div className={styles.post}>
-                <div>
-                  <p className={styles.date}>
-                    {formatDate(postDate)}&nbsp;&nbsp;•
-                    &nbsp;<span>~{calculateTimeAgo(postDate)} months ago</span>
-                  </p>
-                  <p className={styles.title}>{title}</p>
-                </div>
-                <span className={styles.read}>Read</span>
+          if (filesCount === 1 && firstFile.toLowerCase().endsWith('.md')) {
+            return (<li key={i}>
+              <div className={styles.post} onClick={() => { selectPost(it.id); }}>
+                {renderPostContent(title, postDate)}
               </div>
-            </a>
-          </li>);
+            </li>);
+          } else {
+            return (<li key={i}>
+              <a href={it.html_url} target={'_blank'} rel={'noopener noreferrer'}>
+                <div className={styles.post} onClick={() => { selectPost(it.id); }}>
+                  {renderPostContent(title, postDate)}
+                </div>
+              </a>
+            </li>);
+          }
         })}
       </ul>);
     } else {

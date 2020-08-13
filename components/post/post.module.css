@@ -1,0 +1,33 @@
+.post,
+.post * {
+    max-width: 100%;
+}
+
+.post {
+    margin-bottom: 6rem;
+}
+
+.post h1,
+.post h2,
+.post h3,
+.post h4,
+.post h5,
+.post h6 {
+    margin-top: 1.6rem;
+    margin-bottom: 1.2rem;
+}
+
+.post img {
+    display: block;
+    margin: 1.6rem auto;
+}
+
+.post ul {
+    list-style: disc;
+    margin-left: 1.2rem;
+}
+
+.post ol {
+    list-style-type: decimal;
+    margin-left: 1.2rem;
+}
