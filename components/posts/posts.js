@@ -1,13 +1,18 @@
-import { createContext } from 'react';
+import { createContext, useReducer } from 'react';
 import Search from '@components/posts/search/search';
 import List from '@components/posts/list/list';
 
 const PostsContext = createContext('posts');
 
-const Posts = () => {
-  const username = 'octocat';
+const userNameReducer = (data, action) => {
+  if (action.type === 'set') return action.payload;
+  return data;
+};
 
-  return (<PostsContext.Provider value={{ username }}>
+const Posts = () => {
+  const [username, dispatchUserName] = useReducer(userNameReducer, '');
+
+  return (<PostsContext.Provider value={{ username, dispatchUserName }}>
     <Search/>
     <List/>
   </PostsContext.Provider>);

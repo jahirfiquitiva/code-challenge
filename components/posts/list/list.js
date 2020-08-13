@@ -4,10 +4,11 @@ import styles from './list.module.css';
 
 const List = () => {
   const { username } = useContext(PostsContext);
+  console.log(username);
 
   if (!username || username.length <= 0) return (<></>);
 
-  return (<div>
+  return (<div className={styles.postslist}>
     <div className={styles.userinfo}>
       <img src={`https://unavatar.now.sh/github/${username}`} alt={username}/>
     </div>
