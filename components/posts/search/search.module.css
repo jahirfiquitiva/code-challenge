@@ -14,13 +14,14 @@
 }
 
 .search .field input {
+    max-width: 100%;
     background-color: #eee;
     border-radius: 99999px;
     border: none;
     font-size: 1.2rem;
     padding: 1.2rem 2.4rem 1.2rem 4rem;
     min-height: 48px;
-    margin: 0 -1.6rem;
+    margin: 0 0 0 -1.6rem;
 }
 
 .search .field svg {
