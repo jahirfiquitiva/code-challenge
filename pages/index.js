@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Main from '@components/main/main';
 
 const Home = () => {
   return (<>
@@ -7,9 +8,9 @@ const Home = () => {
       <link rel={'icon'} href={'/favicon.ico'}/>
     </Head>
 
-    <main>
+    <Main imageUrl={'/images/main.png'}>
       <p>Hola Mundo</p>
-    </main>
+    </Main>
   </>);
 };
 
