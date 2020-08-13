@@ -1,11 +1,11 @@
 import { useContext, useMemo } from 'react';
-import { SinglePostContext } from '@components/single-post-context';
+import { AppContext } from '@components/app-context';
 import Toolbar from '@components/toolbar/toolbar';
 import Post from '@components/post/post';
 import styles from './main.module.css';
 
 const Main = ({ imageUrl, postImageUrl, children }) => {
-  const { selectedPost } = useContext(SinglePostContext);
+  const { selectedPost } = useContext(AppContext);
 
   useMemo(() => {
     if (!selectedPost || selectedPost.length <= 0) return;

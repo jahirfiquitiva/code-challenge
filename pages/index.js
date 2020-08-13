@@ -2,7 +2,7 @@ import Head from 'next/head';
 import Main from '@components/main/main';
 import Intro from '@components/intro/intro';
 import Posts from '@components/posts/posts';
-import SinglePostProvider from '@components/single-post-context';
+import AppContextProvider from '@components/app-context';
 
 const Home = () => {
   return (<>
@@ -11,12 +11,12 @@ const Home = () => {
       <link rel={'icon'} href={'/favicon.ico'}/>
     </Head>
 
-    <SinglePostProvider>
+    <AppContextProvider>
       <Main imageUrl={'/images/main.png'} postImageUrl={'/images/post.png'}>
         <Intro/>
         <Posts/>
       </Main>
-    </SinglePostProvider>
+    </AppContextProvider>
   </>);
 };
 

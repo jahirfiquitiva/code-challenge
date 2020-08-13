@@ -7,10 +7,10 @@ import fetcher from '@utils/fetcher';
 import formatDate from '@utils/formatDate';
 import calculateTimeAgo from '@utils/calculateTimeAgo';
 import styles from './list.module.css';
-import { SinglePostContext } from '@components/single-post-context';
+import { AppContext } from '@components/app-context';
 
 const List = ({ loading = true }) => {
-  const { username, setSelectedPost } = useContext(SinglePostContext);
+  const { username, setSelectedPost } = useContext(AppContext);
   const { userData } = useContext(PostsContext);
   const { data } = username && username.length > 0
     ? useSWR(`https://api.github.com/users/${username}/gists`, fetcher)

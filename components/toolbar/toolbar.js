@@ -1,11 +1,11 @@
 import { useContext } from 'react';
 import Link from 'next/link';
-import { SinglePostContext } from '@components/single-post-context';
+import { AppContext } from '@components/app-context';
 import MatterSupply from './ms.svg';
 import styles from './toolbar.module.css';
 
 const Toolbar = () => {
-  const { selectedPost, setSelectedPost } = useContext(SinglePostContext);
+  const { selectedPost, setSelectedPost } = useContext(AppContext);
 
   const togglePost = () => {
     if (selectedPost && selectedPost.length > 0) setSelectedPost('');

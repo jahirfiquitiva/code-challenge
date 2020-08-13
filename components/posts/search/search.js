@@ -3,10 +3,10 @@ import Icon from '@mdi/react';
 import { mdiMagnify } from '@mdi/js';
 import { PostsContext } from '@components/posts/posts';
 import styles from './search.module.css';
-import { SinglePostContext } from '@components/single-post-context';
+import { AppContext } from '@components/app-context';
 
 const Search = () => {
-  const { username, dispatchUserName } = useContext(SinglePostContext);
+  const { username, dispatchUserName } = useContext(AppContext);
   const [usernameInInput, setUsernameInInput] = useState(username || '');
 
   const setUserName = () => {

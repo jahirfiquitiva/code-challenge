@@ -1,12 +1,12 @@
 import { createContext, useContext, useMemo, useState } from 'react';
-import { SinglePostContext } from '@components/single-post-context';
+import { AppContext } from '@components/app-context';
 import Search from '@components/posts/search/search';
 import List from '@components/posts/list/list';
 
 const PostsContext = createContext('posts');
 
 const Posts = () => {
-  const { username } = useContext(SinglePostContext);
+  const { username } = useContext(AppContext);
   const [loading, setLoading] = useState(false);
   const [userData, setUserData] = useState(null);
 

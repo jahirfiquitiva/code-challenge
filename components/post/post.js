@@ -2,11 +2,11 @@ import { useContext } from 'react';
 import ReactMarkdown from 'react-markdown';
 import useSWR from 'swr';
 import fetcher from '@utils/fetcher';
-import { SinglePostContext } from '@components/single-post-context';
+import { AppContext } from '@components/app-context';
 import styles from './post.module.css';
 
 const Post = () => {
-  const { selectedPost: selectedPostId } = useContext(SinglePostContext);
+  const { selectedPost: selectedPostId } = useContext(AppContext);
   if (!selectedPostId || selectedPostId.length <= 0) return (<></>);
   const { data } = useSWR(`https://api.github.com/gists/${selectedPostId}`, fetcher);
   if (!data) return (<p>Loading…</p>);

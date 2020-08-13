@@ -1,13 +1,13 @@
 import { createContext, useReducer, useState } from 'react';
 
+const AppContext = createContext('app-context');
+
 const userNameReducer = (data, action) => {
   if (action.type === 'set') return action.payload;
   return data;
 };
 
-const SinglePostContext = createContext('single-post');
-
-const SinglePostProvider = ({ children }) => {
+const AppContextProvider = ({ children }) => {
   const [selectedPost, setSelectedPost] = useState('');
   const [username, dispatchUserName] = useReducer(userNameReducer, '');
 
@@ -18,10 +18,10 @@ const SinglePostProvider = ({ children }) => {
     dispatchUserName,
   };
 
-  return (<SinglePostContext.Provider value={sharedData}>
+  return (<AppContext.Provider value={sharedData}>
     {children}
-  </SinglePostContext.Provider>);
+  </AppContext.Provider>);
 };
 
-export { SinglePostContext };
-export default SinglePostProvider;
+export { AppContext };
+export default AppContextProvider;
