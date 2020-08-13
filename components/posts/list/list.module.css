@@ -1,0 +1,12 @@
+.userinfo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.userinfo img {
+    display: block;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+}

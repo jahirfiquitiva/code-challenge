@@ -13,4 +13,5 @@ const Posts = () => {
   </PostsContext.Provider>);
 };
 
+export { PostsContext };
 export default Posts;
